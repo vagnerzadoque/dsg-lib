@@ -1,0 +1,65 @@
+{
+  "name": "dsg-lib",
+  "version": "1.0.0",
+  "description": "Biblioteca de componentes React desenvolvida com Vite e Storybook.",
+  "author": "Vagner Barbosa <vagner.zaham@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vagnerzadoque/dsg-lib"
+  },
+  "keywords": [
+    "react",
+    "component-library",
+    "vite",
+    "storybook",
+    "design-system"
+  ],
+  "type": "module",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "main": "./dist/dsg-lib.cjs.js",
+  "module": "./dist/dsg-lib.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/dsg-lib.es.js",
+      "require": "./dist/dsg-lib.cjs.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build:storybook": "storybook build",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@storybook/react-vite": "^8.0.0",
+    "@testing-library/react": "^14.0.0",
+    "@types/node": "^22.13.14",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.21.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^15.15.0",
+    "jsdom": "^24.0.0",
+    "storybook": "^8.0.0",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.24.1",
+    "vite": "^6.2.0",
+    "vitest": "^1.5.0"
+  }
+}
