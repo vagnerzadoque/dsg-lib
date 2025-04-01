@@ -1,0 +1,38 @@
+name: 📦 Build & Publish Library
+
+on:
+  push:
+    tags:
+      - 'v*' # Só roda quando um tag do tipo v1.0.0 é criada
+
+jobs:
+  release:
+    name: Release on npm
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout do código
+        uses: actions/checkout@v4
+
+      - name: 🔧 Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: 📦 Instalar dependências
+        run: npm install
+
+      - name: 🔍 Rodar lint
+        run: npm run lint
+
+      - name: 🧪 Rodar testes
+        run: npm run test
+
+      - name: 🏗️ Build da biblioteca
+        run: npm run build
+
+      - name: 🚀 Publicar no npm
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
